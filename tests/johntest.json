@@ -1,0 +1,80 @@
+{
+  "width": 500,
+  "height": 200,
+  "padding": {"top": 30, "left": 30, "bottom": 30, "right": 10},
+  "data": [
+    {
+      "name": "table1",
+      "values": [
+        {"x": 1,  "y": 100}, {"x": 2,  "y": 55},
+        {"x": 3,  "y": 43}, {"x": 4,  "y": 91},
+        {"x": 5,  "y": 81}, {"x": 6,  "y": 53},
+        {"x": 7,  "y": 19}, {"x": 8,  "y": 87},
+        {"x": 9,  "y": 52}, {"x": 10, "y": 48}
+      ]
+    },
+    {
+      "name": "table2",
+      "values": [
+        {"x": 1,  "y": 34}, {"x": 2,  "y": 34},
+        {"x": 3,  "y": 65}, {"x": 4,  "y": 73},
+        {"x": 5,  "y": 23}, {"x": 6,  "y": 76},
+        {"x": 7,  "y": 76}, {"x": 8,  "y": 24},
+        {"x": 9,  "y": 23}, {"x": 10, "y": 77}
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "range": "width",
+      "nice": "true",
+      "domain": {"data": "table1", "field": "data.x"}
+    },
+    {
+      "name": "y",
+      "range": "height",
+      "nice": "true",
+      "domain": {"data": "table1", "field": "data.y"},
+      "reverse": "true"
+    }
+  ],
+  "axes": [
+    {"type": "x", "scale": "x", "orient": "top"},
+    {"type": "y", "scale": "y", "ticks": 5}
+  ],
+  "marks": [
+    {
+      "type": "line",
+      "from": {"data": "table1"},
+      "properties": {
+        "enter": {
+          "x": {"scale": "x", "field": "data.x"},
+          "y": {"scale": "y", "field": "data.y"},
+          "stroke": {"value": "blue"}
+        },
+        "update": {
+          "stroke": {"value": "blue"}
+        }
+      }
+    },
+   {
+      "type": "line",
+      "from": {"data": "table2"},
+      "properties": {
+        "enter": {
+          "x": {"scale": "x", "field": "data.x"},
+          "y": {"scale": "y", "field": "data.y"},
+          "stroke": {"value": "blue"},
+          "strokeWidth": {"value": 5}
+        },
+        "update": {
+          "stroke": {"value": "blue"}
+        },
+        "hover": {
+          "stroke": {"value": "red"}
+        }
+      }
+    }
+  ]
+}
